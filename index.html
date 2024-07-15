@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slide.css">
+    <title>Log in/Sign up</title>
+</head>
+<body>
+    <div class="container" id="main">
+        <div class="sign-up">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social fb" id="fb"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social ig" id="ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social li" id="li"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <p>Use your email for registration</p>
+                <input type="text" name="txt" placeholder="Name" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="pswd" placeholder="Password" required="">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        
+        <div class="sign-in">
+            <form action="#">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social fb" id="fb-signin"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social ig" id="ig-signin"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social li" id="li-signin"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <p>Or use your email for registration</p>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="pswd" placeholder="Password" required="">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Stay connected with us through login</p>
+                    <button id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-right">
+                    <h1>Greetings!</h1>
+                    <p>Sign up with us on this journey of ours</p>
+                    <button id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script type="text/javascript">
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const main = document.getElementById('main');
+
+        signUpButton.addEventListener('click', () => {
+            main.classList.add("right-panel-active");
+        });
+        signInButton.addEventListener('click', () => {
+            main.classList.remove("right-panel-active");
+        });
+
+        // jQuery click event handlers for social links
+        $(document).ready(function() {
+            $('#fb').click(function(e) {
+                e.preventDefault();
+                shareOnFacebook();
+            });
+
+            $('#ig').click(function(e) {
+                e.preventDefault();
+                shareOnInstagram();
+            });
+
+            $('#li').click(function(e) {
+                e.preventDefault();
+                shareOnLinkedIn();
+            });
+
+            // Sign In social links (optional, if needed)
+            $('#fb-signin').click(function(e) {
+                e.preventDefault();
+                signInWithFacebook();
+            });
+
+            $('#ig-signin').click(function(e) {
+                e.preventDefault();
+                signInWithInstagram();
+            });
+
+            $('#li-signin').click(function(e) {
+                e.preventDefault();
+                signInWithLinkedIn();
+            });
+        });
+
+        // Functions to handle sharing and sign in actions
+        function shareOnFacebook() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=https://3ndeavourjoy.github.io/Personal-CV/', '_blank');
+        }
+
+        function shareOnInstagram() {
+            window.open('https://www.instagram.com/?url=https://3ndeavourjoy.github.io/Personal-CV/', '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://3ndeavourjoy.github.io/Personal-CV/', '_blank');
+        }
+
+        // Example functions for sign in actions (replace with actual implementation if needed)
+        function signInWithFacebook() {
+            // Handle Facebook sign in action
+            console.log('Sign in with Facebook');
+        }
+
+        function signInWithInstagram() {
+            // Handle Instagram sign in action
+            console.log('Sign in with Instagram');
+        }
+
+        function signInWithLinkedIn() {
+            // Handle LinkedIn sign in action
+            console.log('Sign in with LinkedIn');
+        }
+    </script>
+</body>
+</html>
